@@ -1,8 +1,54 @@
 # Mini-Spring 框架
 
+[![Java](https://img.shields.io/badge/Java-17-orange)](https://openjdk.org/)
+[![Maven](https://img.shields.io/badge/Maven-3.8+-red)](https://maven.apache.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+
 ## 项目介绍
 
 Mini-Spring是一个简化版的Spring框架，旨在帮助开发者快速理解Spring的核心原理和实现机制。该项目抽取了Spring的核心逻辑，保留其基本功能，同时大幅简化了代码结构，使学习者能够更容易地掌握Spring的精髓。
+
+## 快速开始
+
+### 环境要求
+- JDK 17+
+- Maven 3.8+
+
+### 构建项目
+```bash
+# 克隆仓库
+git clone https://github.com/JXan327/mini-spring.git
+cd mini-spring
+
+# 编译项目
+mvn clean compile
+
+# 运行测试
+mvn test
+
+# 运行示例程序
+mvn exec:java -Dexec.mainClass="com.minispring.examples.IoCBasicExample"
+```
+
+### 快速示例
+
+```java
+// 创建应用上下文
+ClassPathXmlApplicationContext context =
+    new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
+
+// 获取Bean
+UserService userService = context.getBean("userService", UserService.class);
+
+// 使用Bean
+userService.addUser("张三");
+
+// 关闭容器
+context.close();
+```
+
+📚 **新手入门**: 查看 [快速入门指南](QUICKSTART.md) 跟着示例学习
+🔧 **开发文档**: 查看 [开发指南](DEVELOPMENT.md) 了解详细功能
 
 ## 核心功能
 
